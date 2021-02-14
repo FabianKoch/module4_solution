@@ -2,6 +2,7 @@
 var x;
 console.log(x);
 
+/*you can test against the keyword "undefined"*/
 if (x == undefined) {
     console.log("x is undefined");
 }
