@@ -1,4 +1,5 @@
 // ***** String concatination
+
 /*
 var string = "Hello";
 string += " World"; /!*Here we overwrite the variable strin*!/
@@ -6,6 +7,7 @@ string = string + " World"; /!*Does the same as the line above*!/
 console.log(string + "!"); /!*Here the variable string stays the same and we add the "!"*!/
 /!*will output "Hello World World!"*!/
 */
+
 
 
 // ***** Regular math operators: +, -, *, /
