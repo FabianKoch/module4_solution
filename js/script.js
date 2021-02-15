@@ -3,6 +3,8 @@
 function multiply(x, y) {
     return x * y;
 }
+
+/*we can set proprieties on functions because they are objects*/
 multiply.version = "v.1.0.0";
 console.log(multiply.version);
 
@@ -23,13 +25,14 @@ console.log(doubleAll(100));
 
 
 
-// Passing functions as arguments
+// Passing functions as arguments --> "operation" is a function
 function doOperationOn(x, operation) {
-    return operation(x);
+    return operation(x);/*the "()" invoke the function*/
 }
 
 var result = doOperationOn(5, multiplyBy3);
 console.log(result);
 result = doOperationOn(100, doubleAll);
 console.log(result);
+
 
