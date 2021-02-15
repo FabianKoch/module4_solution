@@ -1,44 +1,38 @@
-// Object creation
-/*
-var company = new Object();
-company.name = "Facebook";
-company.ceo = new Object();/!*this is an object within an object*!/
-company.ceo.firstName = "Mark";/!*in order to add things to the ceo object we need to create one*!/
-company.ceo.favColor = "blue";
+// Functions are First-Class Data Types
+// Functions ARE objects
+function multiply(x, y) {
+    return x * y;
+}
 
-console.log(company);
-console.log("Company CEO name is: "
-    + company.ceo.firstName);
+/*we can set proprieties on functions because they are objects*/
+multiply.version = "v.1.0.0";
+console.log(multiply.version);
 
-console.log(company["name"]);/!*you can also use the bracket notation to get values*!/
-var stockPropName = "stock of company";/!*bracket notation is useful when you have variables with spaces in it*!/
-company[stockPropName] = 110;
 
-console.log("Stock price is: " +
-    company[stockPropName]);
-*/
+// Function factory
+function makeMultiplier(multiplier) {
+    var myFunc = function (x) {
+        return multiplier * x;
+    };
 
-// Better way: object literal
-var facebook = {
-    name: "Facebook",/*name and value are separated with ":" and name/value pairs end with ","*/
-    ceo: {
-        firstName: "Mark",
-        favColor: "blue"
-    },
-    "stock of company": 110
-};
+    return myFunc;
+}
 
-console.log(facebook);
-console.log(facebook.ceo.firstName);
-console.log(facebook["stock of company"]);/*bracket notation is useful when you have variables with spaces in it*/
+var multiplyBy3 = makeMultiplier(3);
+console.log(multiplyBy3(10));
+var doubleAll = makeMultiplier(2);
+console.log(doubleAll(100));
 
 
 
+// Passing functions as arguments --> "operation" is a function
+function doOperationOn(x, operation) {
+    return operation(x);/*the "()" invoke the function*/
+}
 
-
-
-
-
-
+var result = doOperationOn(5, multiplyBy3);
+console.log(result);
+result = doOperationOn(100, doubleAll);
+console.log(result);
 
 
