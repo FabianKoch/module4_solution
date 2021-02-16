@@ -1,77 +1,19 @@
-// Copy by Reference vs by Value
-/*var a = 7;
-
-var b = a;
-console.log("a: " + a);
-console.log("b: " + b);
-
-b = 5;
-console.log("after b update:");
-console.log("a: " + a);
-console.log("b: " + b);*/
-
-
-
-
-
-/*
-var a = { x: 7 };
-var b = a;
-console.log(a);
-console.log(b);
-
-/!*you change "x" and since a points to "x" you also change "a"*!/
-b.x = 5;
-console.log("after b.x update:");
-console.log(a);
-console.log(b);
-*/
-
-
-
-
-
-
-
-// Pass by reference vs by value
-//Example 1
-function changePrimitive(primValue) {
-    console.log("in changePrimitive...");
-    console.log("before:");
-    console.log(primValue);
-
-    primValue = 5;
-    console.log("after:");
-    console.log(primValue);
+// Function constructors
+function Circle (radius) {
+    this.radius = radius;
 }
 
-var value = 7;
-changePrimitive(value); // primValue = value
-console.log("after changePrimitive, orig value:");
-console.log(value);
+Circle.prototype.getArea =
+    function () {
+        return Math.PI * Math.pow(this.radius, 2);
+    };
 
 
+var myCircle = new Circle(10);
+console.log(myCircle.getArea());
 
-
-
-//Example 2
-function changeObject(objValue) {
-    console.log("in changeObject...");
-    console.log("before:");
-    console.log(objValue);
-
-    objValue.x = 5;
-    console.log("after:");
-    console.log(objValue);
-}
-
-value = { x: 7 };
-changeObject(value); // objValue = value
-console.log("after changeObject, orig value:");
-console.log(value);
-
-
-
+var myOtherCircle = new Circle(20);
+console.log(myOtherCircle);
 
 
 
