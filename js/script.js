@@ -1,77 +1,22 @@
-// Copy by Reference vs by Value
-/*var a = 7;
+// Object literals and "this"
+var literalCircle = { /*opening the curly braces generates a new object*/
+    radius: 10,
 
-var b = a;
-console.log("a: " + a);
-console.log("b: " + b);
+    getArea: function () {
+        var self = this;/*we define self in the first function so that we can use it in the second*/
+        console.log(this);
 
-b = 5;
-console.log("after b update:");
-console.log("a: " + a);
-console.log("b: " + b);*/
+        var increaseRadius = function () {/*define function to increase radius*/
+            self.radius = 20;/*we must use "self" because "this" would point to the global object because we have a function within a function*/
+        };
+        increaseRadius();/*invoke function*/
+        console.log(this.radius);
 
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+};
 
-
-
-
-/*
-var a = { x: 7 };
-var b = a;
-console.log(a);
-console.log(b);
-
-/!*you change "x" and since a points to "x" you also change "a"*!/
-b.x = 5;
-console.log("after b.x update:");
-console.log(a);
-console.log(b);
-*/
-
-
-
-
-
-
-
-// Pass by reference vs by value
-//Example 1
-function changePrimitive(primValue) {
-    console.log("in changePrimitive...");
-    console.log("before:");
-    console.log(primValue);
-
-    primValue = 5;
-    console.log("after:");
-    console.log(primValue);
-}
-
-var value = 7;
-changePrimitive(value); // primValue = value
-console.log("after changePrimitive, orig value:");
-console.log(value);
-
-
-
-
-
-//Example 2
-function changeObject(objValue) {
-    console.log("in changeObject...");
-    console.log("before:");
-    console.log(objValue);
-
-    objValue.x = 5;
-    console.log("after:");
-    console.log(objValue);
-}
-
-value = { x: 7 };
-changeObject(value); // objValue = value
-console.log("after changeObject, orig value:");
-console.log(value);
-
-
-
+console.log(literalCircle.getArea());
 
 
 
